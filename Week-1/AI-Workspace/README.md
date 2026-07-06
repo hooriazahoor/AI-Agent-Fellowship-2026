@@ -132,3 +132,7 @@ AI-Workspace/
 **Hooria Zahoor**
 BS Artificial Intelligence, The University of Faisalabad
 AI Summer Internship 2026 — Track 2: NLP & AI Agents
+
+## Demo Video
+
+Watch the Week 1 demo video here: [AI Workspace — Week 1 Demo](https://youtu.be/eEVOQno8nTA)
