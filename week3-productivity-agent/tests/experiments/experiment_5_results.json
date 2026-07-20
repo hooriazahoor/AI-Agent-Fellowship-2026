@@ -1,0 +1,384 @@
+{
+  "raw_trials": [
+    {
+      "scenario": "A",
+      "max_agent_steps": 1,
+      "needed_steps": 2,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 49.95,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 1,
+      "needed_steps": 4,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 26.31,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 1,
+      "needed_steps": 6,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 23.75,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 1,
+      "needed_steps": 10,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 26.21,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 2,
+      "needed_steps": 2,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 14.69,
+      "final_message": "Done after 2 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 2,
+      "needed_steps": 4,
+      "actual_tool_calls_made": 2,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 40.93,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 2,
+      "needed_steps": 6,
+      "actual_tool_calls_made": 2,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 27.63,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 2,
+      "needed_steps": 10,
+      "actual_tool_calls_made": 2,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 27.46,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 3,
+      "needed_steps": 2,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 23.23,
+      "final_message": "Done after 2 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 3,
+      "needed_steps": 4,
+      "actual_tool_calls_made": 3,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 32.92,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 3,
+      "needed_steps": 6,
+      "actual_tool_calls_made": 3,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 30.62,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 3,
+      "needed_steps": 10,
+      "actual_tool_calls_made": 3,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 30.69,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 5,
+      "needed_steps": 2,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 24.39,
+      "final_message": "Done after 2 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 5,
+      "needed_steps": 4,
+      "actual_tool_calls_made": 3,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 28.17,
+      "final_message": "Done after 4 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 5,
+      "needed_steps": 6,
+      "actual_tool_calls_made": 5,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 36.74,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 5,
+      "needed_steps": 10,
+      "actual_tool_calls_made": 5,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 36.24,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 8,
+      "needed_steps": 2,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 28.43,
+      "final_message": "Done after 2 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 8,
+      "needed_steps": 4,
+      "actual_tool_calls_made": 3,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 32.26,
+      "final_message": "Done after 4 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 8,
+      "needed_steps": 6,
+      "actual_tool_calls_made": 5,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 43.6,
+      "final_message": "Done after 6 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 8,
+      "needed_steps": 10,
+      "actual_tool_calls_made": 8,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 34.22,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: **Steps taken:**\n\n- `list_tasks`: Found 1 matching task(s).\n- `det"
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 16,
+      "needed_steps": 2,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 14.99,
+      "final_message": "Done after 2 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 16,
+      "needed_steps": 4,
+      "actual_tool_calls_made": 3,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 22.47,
+      "final_message": "Done after 4 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 16,
+      "needed_steps": 6,
+      "actual_tool_calls_made": 5,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 26.43,
+      "final_message": "Done after 6 steps."
+    },
+    {
+      "scenario": "A",
+      "max_agent_steps": 16,
+      "needed_steps": 10,
+      "actual_tool_calls_made": 9,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": false,
+      "duration_ms": 32.98,
+      "final_message": "Done after 10 steps."
+    },
+    {
+      "scenario": "B",
+      "max_agent_steps": 1,
+      "needed_steps": null,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": false,
+      "hit_step_ceiling": true,
+      "caught_loop": false,
+      "duration_ms": 16.21,
+      "final_message": "I reached the maximum number of steps for this request. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "B",
+      "max_agent_steps": 2,
+      "needed_steps": null,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": true,
+      "duration_ms": 15.25,
+      "final_message": "I ran into a repeated step while handling this request, so I stopped early. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "B",
+      "max_agent_steps": 3,
+      "needed_steps": null,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": true,
+      "duration_ms": 23.53,
+      "final_message": "I ran into a repeated step while handling this request, so I stopped early. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "B",
+      "max_agent_steps": 5,
+      "needed_steps": null,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": true,
+      "duration_ms": 16.37,
+      "final_message": "I ran into a repeated step while handling this request, so I stopped early. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "B",
+      "max_agent_steps": 8,
+      "needed_steps": null,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": true,
+      "duration_ms": 16.42,
+      "final_message": "I ran into a repeated step while handling this request, so I stopped early. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    },
+    {
+      "scenario": "B",
+      "max_agent_steps": 16,
+      "needed_steps": null,
+      "actual_tool_calls_made": 1,
+      "completed_successfully": true,
+      "hit_step_ceiling": false,
+      "caught_loop": true,
+      "duration_ms": 15.67,
+      "final_message": "I ran into a repeated step while handling this request, so I stopped early. Here's what I found so far: `list_tasks` -> Found 1 matching task(s)."
+    }
+  ],
+  "summary_by_step_limit": {
+    "1": {
+      "scenario_a_completion_rate_pct": 0.0,
+      "scenario_a_avg_latency_ms": 31.55,
+      "scenario_a_avg_tool_calls_cost_proxy": 1.0,
+      "scenario_b_loop_always_prevented": true,
+      "scenario_b_avg_latency_ms": 16.21,
+      "scenario_b_avg_tool_calls_cost_proxy": 1.0
+    },
+    "2": {
+      "scenario_a_completion_rate_pct": 25.0,
+      "scenario_a_avg_latency_ms": 27.68,
+      "scenario_a_avg_tool_calls_cost_proxy": 1.75,
+      "scenario_b_loop_always_prevented": true,
+      "scenario_b_avg_latency_ms": 15.25,
+      "scenario_b_avg_tool_calls_cost_proxy": 1.0
+    },
+    "3": {
+      "scenario_a_completion_rate_pct": 25.0,
+      "scenario_a_avg_latency_ms": 29.37,
+      "scenario_a_avg_tool_calls_cost_proxy": 2.5,
+      "scenario_b_loop_always_prevented": true,
+      "scenario_b_avg_latency_ms": 23.53,
+      "scenario_b_avg_tool_calls_cost_proxy": 1.0
+    },
+    "5": {
+      "scenario_a_completion_rate_pct": 50.0,
+      "scenario_a_avg_latency_ms": 31.39,
+      "scenario_a_avg_tool_calls_cost_proxy": 3.5,
+      "scenario_b_loop_always_prevented": true,
+      "scenario_b_avg_latency_ms": 16.37,
+      "scenario_b_avg_tool_calls_cost_proxy": 1.0
+    },
+    "8": {
+      "scenario_a_completion_rate_pct": 75.0,
+      "scenario_a_avg_latency_ms": 34.63,
+      "scenario_a_avg_tool_calls_cost_proxy": 4.25,
+      "scenario_b_loop_always_prevented": true,
+      "scenario_b_avg_latency_ms": 16.42,
+      "scenario_b_avg_tool_calls_cost_proxy": 1.0
+    },
+    "16": {
+      "scenario_a_completion_rate_pct": 100.0,
+      "scenario_a_avg_latency_ms": 24.22,
+      "scenario_a_avg_tool_calls_cost_proxy": 4.5,
+      "scenario_b_loop_always_prevented": true,
+      "scenario_b_avg_latency_ms": 15.67,
+      "scenario_b_avg_tool_calls_cost_proxy": 1.0
+    }
+  }
+}

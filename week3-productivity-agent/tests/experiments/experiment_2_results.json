@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "free_text_parsing_failure_rate_pct": 37.5,
+    "structured_json_parsing_failure_rate_pct": 75.0,
+    "n_transcripts": 8
+  },
+  "free_text_results": [
+    {
+      "decisions_found": true,
+      "action_items_found": 1,
+      "questions_found": false,
+      "parse_ok": true,
+      "raw_length": 258
+    },
+    {
+      "parse_ok": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "decisions_found": false,
+      "action_items_found": 1,
+      "questions_found": false,
+      "parse_ok": true,
+      "raw_length": 260
+    },
+    {
+      "decisions_found": false,
+      "action_items_found": 1,
+      "questions_found": false,
+      "parse_ok": true,
+      "raw_length": 286
+    },
+    {
+      "decisions_found": false,
+      "action_items_found": 1,
+      "questions_found": false,
+      "parse_ok": true,
+      "raw_length": 289
+    },
+    {
+      "decisions_found": false,
+      "action_items_found": 0,
+      "questions_found": false,
+      "parse_ok": true,
+      "raw_length": 304
+    }
+  ],
+  "structured_results": [
+    {
+      "parse_ok": true,
+      "missing_fields": [],
+      "json_valid": true
+    },
+    {
+      "parse_ok": true,
+      "missing_fields": [],
+      "json_valid": true
+    },
+    {
+      "parse_ok": false,
+      "json_valid": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "json_valid": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "json_valid": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "json_valid": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "json_valid": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    },
+    {
+      "parse_ok": false,
+      "json_valid": false,
+      "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+    }
+  ]
+}

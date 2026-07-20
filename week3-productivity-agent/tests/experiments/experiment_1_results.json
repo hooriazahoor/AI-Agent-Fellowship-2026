@@ -1,0 +1,199 @@
+{
+  "summary": {
+    "short_descriptions_accuracy_pct": 20.0,
+    "detailed_descriptions_accuracy_pct": 26.7,
+    "delta_pct_points": 6.7
+  },
+  "short_run": {
+    "label": "short_descriptions",
+    "accuracy_pct": 20.0,
+    "results": [
+      {
+        "request": "Show me all tasks.",
+        "expected": "list_tasks",
+        "actual": null,
+        "correct": false
+      },
+      {
+        "request": "Show me critical tasks.",
+        "expected": "list_tasks",
+        "actual": "list_tasks",
+        "correct": true
+      },
+      {
+        "request": "Create a task to review the budget.",
+        "expected": "create_task",
+        "actual": "create_task",
+        "correct": true
+      },
+      {
+        "request": "Search my notes for marketing.",
+        "expected": "search_notes",
+        "actual": "search_notes",
+        "correct": true
+      },
+      {
+        "request": "Save a note about today's standup.",
+        "expected": "save_note",
+        "actual": null,
+        "correct": false
+      },
+      {
+        "request": "Show overdue tasks.",
+        "expected": "detect_overdue_tasks",
+        "actual": null,
+        "correct": false
+      },
+      {
+        "request": "How long will 'write report' take?",
+        "expected": "estimate_task_effort",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Are any of my deadlines conflicting?",
+        "expected": "identify_conflicting_deadlines",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "What priorities should I adjust?",
+        "expected": "recommend_task_priorities",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Summarize my notes about the campaign.",
+        "expected": "summarize_notes",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Remind me to call John tomorrow.",
+        "expected": "create_reminder",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Draft a follow-up email from these notes: budget approved.",
+        "expected": "draft_followup_email",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Give me this week's productivity report.",
+        "expected": "generate_weekly_report",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Delete the task about archiving tickets.",
+        "expected": "delete_task",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Extract action items from: Sarah will finalize the contract by Friday.",
+        "expected": "extract_meeting_actions",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      }
+    ]
+  },
+  "detailed_run": {
+    "label": "detailed_descriptions",
+    "accuracy_pct": 26.7,
+    "results": [
+      {
+        "request": "Show me all tasks.",
+        "expected": "list_tasks",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Show me critical tasks.",
+        "expected": "list_tasks",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Create a task to review the budget.",
+        "expected": "create_task",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Search my notes for marketing.",
+        "expected": "search_notes",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Save a note about today's standup.",
+        "expected": "save_note",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Show overdue tasks.",
+        "expected": "detect_overdue_tasks",
+        "actual": null,
+        "correct": false
+      },
+      {
+        "request": "How long will 'write report' take?",
+        "expected": "estimate_task_effort",
+        "actual": "estimate_task_effort",
+        "correct": true
+      },
+      {
+        "request": "Are any of my deadlines conflicting?",
+        "expected": "identify_conflicting_deadlines",
+        "actual": "identify_conflicting_deadlines",
+        "correct": true
+      },
+      {
+        "request": "What priorities should I adjust?",
+        "expected": "recommend_task_priorities",
+        "actual": "recommend_task_priorities",
+        "correct": true
+      },
+      {
+        "request": "Summarize my notes about the campaign.",
+        "expected": "summarize_notes",
+        "actual": "summarize_notes",
+        "correct": true
+      },
+      {
+        "request": "Remind me to call John tomorrow.",
+        "expected": "create_reminder",
+        "actual": null,
+        "correct": false
+      },
+      {
+        "request": "Draft a follow-up email from these notes: budget approved.",
+        "expected": "draft_followup_email",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Give me this week's productivity report.",
+        "expected": "generate_weekly_report",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Delete the task about archiving tickets.",
+        "expected": "delete_task",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      },
+      {
+        "request": "Extract action items from: Sarah will finalize the contract by Friday.",
+        "expected": "extract_meeting_actions",
+        "actual": "ERROR: LLM API error: the AI model's free-tier request quota has been reached for now - please try again later",
+        "correct": false
+      }
+    ]
+  }
+}

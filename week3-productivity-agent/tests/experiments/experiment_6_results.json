@@ -1,0 +1,178 @@
+{
+  "model_a": {
+    "model": "gemini-2.5-flash",
+    "accuracy_pct": 20.0,
+    "avg_latency_ms": 2451.1,
+    "error_rate_pct": 80.0,
+    "results": [
+      {
+        "prompt": "Show me all high-priority tasks.",
+        "expected": "list_tasks",
+        "actual": "list_tasks",
+        "correct": true,
+        "latency_ms": 3811.9,
+        "error": null
+      },
+      {
+        "prompt": "Create a task to review the budget report.",
+        "expected": "create_task",
+        "actual": "create_task",
+        "correct": true,
+        "latency_ms": 1283.0,
+        "error": null
+      },
+      {
+        "prompt": "Show overdue tasks.",
+        "expected": "detect_overdue_tasks",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2396.2,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "Search my notes for marketing.",
+        "expected": "search_notes",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2587.3,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "Save a note about today's standup.",
+        "expected": "save_note",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2257.6,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "Create a reminder to call John tomorrow.",
+        "expected": "create_reminder",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2565.2,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "Draft a follow-up email from these notes: launch confirmed.",
+        "expected": "draft_followup_email",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2473.4,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "Explain the difference between high and critical priority.",
+        "expected": null,
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2578.8,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "What can you help me with?",
+        "expected": null,
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2275.1,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      },
+      {
+        "prompt": "Summarize this note: budget concerns discussed.",
+        "expected": "extract_meeting_actions",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 2282.7,
+        "error": "LLM API error: the AI model's free-tier request quota has been reached for now - please try again later"
+      }
+    ]
+  },
+  "model_b": {
+    "model": "gemini-2.5-flash-lite",
+    "accuracy_pct": 0.0,
+    "avg_latency_ms": 689.6,
+    "error_rate_pct": 100.0,
+    "results": [
+      {
+        "prompt": "Show me all high-priority tasks.",
+        "expected": "list_tasks",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 1521.5,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Create a task to review the budget report.",
+        "expected": "create_task",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 620.4,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Show overdue tasks.",
+        "expected": "detect_overdue_tasks",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 465.3,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Search my notes for marketing.",
+        "expected": "search_notes",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 592.9,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Save a note about today's standup.",
+        "expected": "save_note",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 643.4,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Create a reminder to call John tomorrow.",
+        "expected": "create_reminder",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 622.3,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Draft a follow-up email from these notes: launch confirmed.",
+        "expected": "draft_followup_email",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 473.2,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Explain the difference between high and critical priority.",
+        "expected": null,
+        "actual": null,
+        "correct": false,
+        "latency_ms": 695.6,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "What can you help me with?",
+        "expected": null,
+        "actual": null,
+        "correct": false,
+        "latency_ms": 624.3,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      },
+      {
+        "prompt": "Summarize this note: budget concerns discussed.",
+        "expected": "extract_meeting_actions",
+        "actual": null,
+        "correct": false,
+        "latency_ms": 636.7,
+        "error": "LLM API error: the AI model returned an unexpected error"
+      }
+    ]
+  }
+}

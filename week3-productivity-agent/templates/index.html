@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productivity Agent</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">PA</div>
+      <div>
+        <div class="brand-title">Productivity Agent</div>
+        <div class="brand-sub">Tool-using task assistant</div>
+      </div>
+    </div>
+
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="chat">💬 Chat</button>
+      <button class="nav-tab" data-tab="tasks">✅ Tasks</button>
+      <button class="nav-tab" data-tab="notes">🗒️ Notes</button>
+      <button class="nav-tab" data-tab="tools">🛠️ Tools</button>
+      <button class="nav-tab" data-tab="logs">📜 Execution Log</button>
+    </nav>
+
+    <div class="sidebar-status">
+      <div class="status-row">
+        <span class="dot" id="llm-dot"></span>
+        <span id="llm-provider-label">LLM: {{ llm_provider }}</span>
+      </div>
+      <div class="status-row muted">Max agent steps: {{ max_steps }}</div>
+      <button id="seed-btn" class="ghost-btn">Load sample data</button>
+    </div>
+  </aside>
+
+  <main class="main-area">
+
+    <!-- CHAT TAB -->
+    <section class="tab-panel active" id="tab-chat">
+      <div class="panel-header">
+        <h2>Chat</h2>
+        <div class="agent-status" id="agent-status">
+          <span class="status-pill idle" id="status-pill">Idle</span>
+        </div>
+      </div>
+
+      <div class="chat-layout">
+        <div class="chat-main">
+          <div class="chat-window" id="chat-window">
+            <div class="msg agent">
+              <div class="msg-bubble">
+                Hi! I'm your productivity agent. I can create tasks from meeting notes, list and update
+                tasks, search your notes, build a daily plan, and more. I'll always ask for your approval
+                before doing anything that changes or sends data. Try: <em>"Show me all high-priority tasks due this week."</em>
+              </div>
+            </div>
+          </div>
+
+          <form id="chat-form" class="chat-input-row">
+            <input id="chat-input" type="text" placeholder="Ask me to create tasks, plan your day, search notes..." autocomplete="off" />
+            <button type="submit">Send</button>
+          </form>
+          <div class="error-banner" id="error-banner" style="display:none;"></div>
+        </div>
+
+        <aside class="activity-panel">
+          <h3>Agent Activity</h3>
+          <div class="timeline" id="activity-timeline">
+            <p class="timeline-empty">Send a message to see the agent's live steps here - intent
+              analysis, tool selection, execution, validation, and response generation.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TASKS TAB -->
+    <section class="tab-panel" id="tab-tasks">
+      <div class="panel-header">
+        <h2>Tasks</h2>
+        <div class="filters">
+          <select id="filter-status">
+            <option value="">All Statuses</option>
+            <option>Pending</option><option>In Progress</option><option>Blocked</option>
+            <option>Completed</option><option>Cancelled</option>
+          </select>
+          <select id="filter-priority">
+            <option value="">All Priorities</option>
+            <option>Low</option><option>Medium</option><option>High</option><option>Critical</option>
+          </select>
+          <button id="refresh-tasks" class="ghost-btn">Refresh</button>
+        </div>
+      </div>
+      <div class="task-grid" id="task-grid"></div>
+    </section>
+
+    <!-- NOTES TAB -->
+    <section class="tab-panel" id="tab-notes">
+      <div class="panel-header">
+        <h2>Notes</h2>
+        <div class="filters">
+          <input id="note-search" type="text" placeholder="Search notes by keyword..." />
+          <button id="note-search-btn" class="ghost-btn-light">Search</button>
+          <button id="new-note-btn" class="ghost-btn-light">+ New Note</button>
+          <button id="refresh-notes" class="ghost-btn">Refresh</button>
+        </div>
+      </div>
+      <div class="note-grid" id="note-grid"></div>
+    </section>
+
+    <!-- TOOLS TAB (additional/bonus tools, each on its own card) -->
+    <section class="tab-panel" id="tab-tools">
+      <div class="panel-header">
+        <h2>Tools</h2>
+        <div class="filters"><span class="status-row muted" style="color:var(--muted);font-size:12px;">10 additional tools - each runs independently, approval-gated actions show the approval popup</span></div>
+      </div>
+      <div class="tools-grid" id="tools-grid">
+
+        <div class="tool-card" data-tool="detect_overdue_tasks">
+          <h4>🔴 Detect Overdue Tasks</h4>
+          <p>Find all tasks past their due date that aren't completed or cancelled.</p>
+          <button class="run-btn">Run</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="estimate_task_effort">
+          <h4>⏱️ Estimate Task Effort</h4>
+          <p>Heuristically estimate minutes needed based on title/description text.</p>
+          <input class="tf-title" type="text" placeholder="Task title" />
+          <textarea class="tf-description" rows="2" placeholder="Description (optional)"></textarea>
+          <button class="run-btn">Estimate</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="identify_conflicting_deadlines">
+          <h4>⚠️ Identify Conflicting Deadlines</h4>
+          <p>Flag tasks whose due dates cluster too closely together.</p>
+          <label class="mini-label">Window (hours)</label>
+          <input class="tf-window" type="number" value="4" min="1" />
+          <button class="run-btn">Check Conflicts</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="recommend_task_priorities">
+          <h4>📈 Recommend Task Priorities</h4>
+          <p>Suggest priority upgrades based on approaching due dates.</p>
+          <button class="run-btn">Get Recommendations</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="summarize_notes">
+          <h4>📝 Summarize Notes</h4>
+          <p>Summarize notes matching a keyword (or the 10 most recent if left blank).</p>
+          <input class="tf-query" type="text" placeholder="Keyword (optional)" />
+          <button class="run-btn">Summarize</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="create_reminder">
+          <h4>⏰ Create Reminder</h4>
+          <p>Creates a reminder task. Requires approval before it's saved.</p>
+          <input class="tf-title" type="text" placeholder="Reminder title" />
+          <input class="tf-remind-at" type="datetime-local" />
+          <textarea class="tf-notes" rows="2" placeholder="Notes (optional)"></textarea>
+          <button class="run-btn">Request Reminder</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="draft_followup_email">
+          <h4>✉️ Draft Follow-up Email</h4>
+          <p>Drafts a follow-up email from meeting notes (simulated send). Requires approval.</p>
+          <textarea class="tf-meeting-notes" rows="3" placeholder="Paste meeting notes..."></textarea>
+          <input class="tf-recipient" type="text" placeholder="Recipient name (optional)" />
+          <select class="tf-tone">
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+            <option value="concise">Concise</option>
+          </select>
+          <button class="run-btn">Draft Email</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="generate_weekly_report">
+          <h4>📊 Generate Weekly Report</h4>
+          <p>Completed/overdue/blocked task summary and next-week priorities.</p>
+          <label class="mini-label">Week start (optional)</label>
+          <input class="tf-week-start" type="date" />
+          <button class="run-btn">Generate Report</button>
+          <div class="tool-result"></div>
+          <button class="mini-btn edit export-btn" style="display:none;margin-top:8px;">⬇ Export as Markdown</button>
+        </div>
+
+        <div class="tool-card" data-tool="convert_meeting_notes_to_tasks">
+          <h4>🔁 Convert Meeting Notes to Tasks</h4>
+          <p>Extracts action items and creates a task per item. Requires approval.</p>
+          <textarea class="tf-transcript" rows="3" placeholder="Paste meeting notes..."></textarea>
+          <select class="tf-priority">
+            <option value="Medium">Medium</option><option value="Low">Low</option>
+            <option value="High">High</option><option value="Critical">Critical</option>
+          </select>
+          <button class="run-btn">Convert</button>
+          <div class="tool-result"></div>
+        </div>
+
+        <div class="tool-card" data-tool="export_report">
+          <h4>⬇ Export Report</h4>
+          <p>Exports the most recent Weekly Report generated above as Markdown. Run "Generate Weekly Report" first.</p>
+          <button class="run-btn" disabled>Export Last Weekly Report</button>
+          <div class="tool-result"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOGS TAB -->
+    <section class="tab-panel" id="tab-logs">
+      <div class="panel-header">
+        <h2>Execution History</h2>
+        <button id="refresh-logs" class="ghost-btn">Refresh</button>
+      </div>
+      <div class="log-list" id="log-list"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Global approval modal: used by both chat-triggered and Tasks-tab-triggered approvals -->
+<div id="approval-modal" class="modal-overlay hidden">
+  <div class="approval-card" id="approval-modal-card"></div>
+</div>
+
+<!-- Edit task modal -->
+<div id="edit-modal" class="modal-overlay hidden">
+  <div class="edit-card">
+    <h4>Edit Task</h4>
+    <label>Title</label>
+    <input id="edit-title" type="text" />
+    <label>Description</label>
+    <textarea id="edit-description" rows="3"></textarea>
+    <div class="edit-row">
+      <div>
+        <label>Priority</label>
+        <select id="edit-priority">
+          <option>Low</option><option>Medium</option><option>High</option><option>Critical</option>
+        </select>
+      </div>
+      <div>
+        <label>Status</label>
+        <select id="edit-status">
+          <option>Pending</option><option>In Progress</option><option>Blocked</option>
+          <option>Completed</option><option>Cancelled</option>
+        </select>
+      </div>
+    </div>
+    <label>Due date</label>
+    <input id="edit-due-date" type="date" />
+    <div class="edit-actions">
+      <button id="edit-cancel-btn" class="ghost-btn-light">Cancel</button>
+      <button id="edit-save-btn" class="btn-approve">Save (requests approval)</button>
+    </div>
+  </div>
+</div>
+
+<!-- Note detail modal -->
+<div id="note-detail-modal" class="modal-overlay hidden">
+  <div class="edit-card" id="note-detail-card">
+    <!-- filled dynamically -->
+  </div>
+</div>
+
+<!-- New note modal -->
+<div id="new-note-modal" class="modal-overlay hidden">
+  <div class="edit-card">
+    <h4>New Note</h4>
+    <label>Title</label>
+    <input id="note-title" type="text" />
+    <label>Content</label>
+    <textarea id="note-content" rows="4"></textarea>
+    <div class="edit-row">
+      <div>
+        <label>Category</label>
+        <input id="note-category" type="text" placeholder="general" />
+      </div>
+      <div>
+        <label>Tags (comma-separated)</label>
+        <input id="note-tags" type="text" placeholder="marketing, campaign" />
+      </div>
+    </div>
+    <div class="edit-actions">
+      <button id="note-cancel-btn" class="ghost-btn-light">Cancel</button>
+      <button id="note-save-btn" class="btn-approve">Save Note</button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
